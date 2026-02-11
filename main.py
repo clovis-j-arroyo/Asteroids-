@@ -1,7 +1,7 @@
 import pygame
 from constants import SCREEN_HEIGHT,SCREEN_WIDTH
 from logger import log_state
-
+from player import Player
 
 
 def main():
@@ -14,6 +14,7 @@ def main():
     tock = pygame.time.Clock()
     dt = 0
 
+    ship = Player(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2)
 
     #GAME LOOP  
     while True:
@@ -23,6 +24,7 @@ def main():
                 return
 
         screen.fill("black")
+        ship.draw(screen)
         pygame.display.flip()
         dt = tock.tick(60) / 1000
         
