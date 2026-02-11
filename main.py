@@ -49,6 +49,13 @@ def main():
                 sys.exit()
         screen.fill("black")
 
+        for boulder in asteroids:
+            for bullet in shots:
+                if bullet.collides_with(boulder) == True:
+                    log_event("asteroid_shot")
+                    boulder.kill()
+                    bullet.kill()
+
         for drawing in drawable:
             drawing.draw(screen)
         pygame.display.flip()
